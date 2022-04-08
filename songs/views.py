@@ -4,7 +4,7 @@ from .serializer import SongSerializer
 from songs.models import Song
 from rest_framework import status
 from .models import Song, Like
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from rest_framework.response import Response
 
 @api_view(['GET','POST'])
@@ -33,3 +33,7 @@ def song_detail(request, pk):
     elif request.method == 'DELETE':
         song.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+
+
